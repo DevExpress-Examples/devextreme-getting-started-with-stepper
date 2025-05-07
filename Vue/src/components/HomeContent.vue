@@ -1,25 +1,26 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-
-import 'devextreme/dist/css/dx.material.blue.light.compact.css';
-import DxButton from 'devextreme-vue/button';
-
-const props = defineProps({
-  text: String,
-});
-const count = ref(0);
-const buttonText = computed<string>(
-  () => `Click ${props.text}: ${count.value}`
-);
-function clickHandler() {
-  count.value += 1;
-}
+import { DxStepper, DxItem, DxStepperTypes } from 'devextreme-vue/stepper';
+const onSelectionChanged = (e: DxStepperTypes.SelectionChangedEvent) => {
+  const newItem = e.addedItems[0];
+  const items = e.component.option('items');
+  const newIndex = items.findIndex((item) => newItem.label === item.label);
+  e.component.option(`items[${newIndex - 1}].disabled`, true);
+};
 </script>
 <template>
-  <div>
-    <DxButton
-      :text="buttonText"
-      @click="clickHandler"
-    />
-  </div>
+  <DxStepper @selection-changed="onSelectionChanged">
+    <DxItem label='Personal Details' template='star'>
+    </DxItem><template #star="{ data }">
+      <div class="star dx-step-indicator">
+      </div>
+      <div class="dx-step-caption">
+        <div class="dx-step-label">{{ data.label }}</div>
+      </div>
+    </template>
+    <DxItem label="Program Selection" icon='detailslayout'></DxItem>
+    <DxItem label="Campus and Start Dates" icon='map'></DxItem>
+    <DxItem label="Supporting Documents" icon='textdocument'></DxItem>
+    <DxItem label="Scholarship and Aid" icon='money'></DxItem>
+    <DxItem label="Review and Submit" icon='send'></DxItem>
+  </DxStepper>
 </template>
