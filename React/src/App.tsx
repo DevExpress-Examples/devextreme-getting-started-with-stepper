@@ -2,10 +2,13 @@ import { JSX } from 'react';
 import { Stepper, Item, StepperTypes } from 'devextreme-react/stepper';
 import React from 'react';
 
-const renderFirstItem = (data: StepperTypes.TemplateData) => <React.Fragment><div className="star dx-step-indicator"></div>
-  <div className="dx-step-caption">
-    <div className="dx-step-label">{data.label}</div>
-  </div></React.Fragment>;
+const renderFirstItem = (data: StepperTypes.TemplateData) => 
+  <React.Fragment>
+    <div className="star dx-step-indicator"></div>
+    <div className="dx-step-caption">
+      <div className="dx-step-label">{data.label}</div>
+    </div>
+  </React.Fragment>;
 
 const onSelectionChanged = (e: StepperTypes.SelectionChangedEvent) => {
   const newItem = e.addedItems[0];
