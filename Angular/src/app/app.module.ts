@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { DxStepperModule } from 'devextreme-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DxStepperModule } from "devextreme-angular";
 
 @NgModule({
   declarations: [
