@@ -2,12 +2,7 @@ $(() => {
   $('#stepper').dxStepper({
     items: [{
       label: 'Personal Details',
-      template: (data) => {
-      return `<div class='star dx-step-indicator'></div>
-        <div class='dx-step-caption'>
-          <div class='dx-step-label'>${data.label}</div>
-        </div>`;
-      },
+      template: (data) => `<div class='star dx-step-indicator'></div><div class='dx-step-caption'><div class='dx-step-label'>${data.label}</div></div>`
     }, {
       label: 'Program Selection',
       icon: 'detailslayout',
@@ -20,7 +15,7 @@ $(() => {
     }, {
       label: 'Scholarship and Aid',
       icon: 'money',
-      optional: true
+      optional: true,
     }, {
       label: 'Review and Submit',
       icon: 'send',
@@ -31,8 +26,7 @@ $(() => {
       const newItem = e.addedItems[0];
       const items = e.component.option('items');
       const newIndex = items.findIndex((item) => newItem.label === item.label);
-      e.component.option(`items[${newIndex-1}].disabled`, true);
-      return;
+      e.component.option(`items[${newIndex - 1}].disabled`, true);
     },
   });
 });
