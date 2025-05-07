@@ -20,7 +20,7 @@ const onSelectionChanged = (e: DxStepperTypes.SelectionChangedEvent) => {
     <DxItem label="Program Selection" icon='detailslayout' />
     <DxItem label="Campus and Start Dates" icon='map' />
     <DxItem label="Supporting Documents" icon='textdocument' />
-    <DxItem label="Scholarship and Aid" icon='money' />
+    <DxItem label="Scholarship and Aid" icon='money' :optional='true' />
     <DxItem label="Review and Submit" icon='send' />
   </DxStepper>
 </template>
