@@ -2,7 +2,7 @@ $(() => {
   $('#stepper').dxStepper({
     items: [{
       label: 'Personal Details',
-      template: (data) => `<div class='star dx-step-indicator'></div><div class='dx-step-caption'><div class='dx-step-label'>${data.label}</div></div>`
+      template: (data) => `<div class='star dx-step-indicator'></div><div class='dx-step-caption'><div class='dx-step-label'>${data.label}</div></div>`,
     }, {
       label: 'Program Selection',
       icon: 'detailslayout',
