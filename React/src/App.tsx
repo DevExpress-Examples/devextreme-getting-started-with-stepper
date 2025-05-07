@@ -1,18 +1,29 @@
-import React, { useCallback, useState } from 'react';
-import './App.css';
-import 'devextreme/dist/css/dx.material.blue.light.compact.css';
-import Button from 'devextreme-react/button';
+import { JSX } from 'react';
+import { Stepper, Item, StepperTypes } from 'devextreme-react/stepper';
 
-function App(): JSX.Element {
-  var [count, setCount] = useState<number>(0);
-  const clickHandler = useCallback(() => {
-    setCount((prev) => prev + 1);
-  }, [setCount]);
+const renderFirstItem = (data: StepperTypes.TemplateData) => {
+  return <><div className="star dx-step-indicator">
+        </div>
+        <div className="dx-step-caption">
+          <div className="dx-step-label">{data.label}</div>
+    </div></>;
+};
+const onSelectionChanged = (e:  StepperTypes.SelectionChangedEvent) => {
+  const newItem = e.addedItems[0];
+  const items = e.component.option('items');
+  const newIndex = items.findIndex((item: StepperTypes.Item) => newItem.label === item.label);
+  e.component.option(`items[${newIndex - 1}].disabled`, true);
+};
+
+export default function App(): JSX.Element {
   return (
-    <div className="main">
-      <Button text={`Click count: ${count}`} onClick={clickHandler} />
-    </div>
+    <Stepper onSelectionChanged={onSelectionChanged}>
+      <Item label="Personal Details" render={renderFirstItem} />
+      <Item label="Program Selection" icon="detailslayout" />
+      <Item label="Campus and Start Dates" icon="map" />
+      <Item label="Supporting Documents" icon="textdocument" />
+      <Item label="Scholarship and Aid" icon="money" optional={true} />
+      <Item label="Review and Submit" icon="send" />
+    </Stepper>
   );
 }
-
-export default App;
