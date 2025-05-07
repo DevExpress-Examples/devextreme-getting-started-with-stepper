@@ -1,14 +1,13 @@
 import { JSX } from 'react';
 import { Stepper, Item, StepperTypes } from 'devextreme-react/stepper';
+import React from 'react';
 
-const renderFirstItem = (data: StepperTypes.TemplateData) => {
-  return <><div className="star dx-step-indicator">
-        </div>
-        <div className="dx-step-caption">
-          <div className="dx-step-label">{data.label}</div>
-    </div></>;
-};
-const onSelectionChanged = (e:  StepperTypes.SelectionChangedEvent) => {
+const renderFirstItem = (data: StepperTypes.TemplateData) => <React.Fragment><div className="star dx-step-indicator"></div>
+  <div className="dx-step-caption">
+    <div className="dx-step-label">{data.label}</div>
+  </div></React.Fragment>;
+
+const onSelectionChanged = (e: StepperTypes.SelectionChangedEvent) => {
   const newItem = e.addedItems[0];
   const items = e.component.option('items');
   const newIndex = items.findIndex((item: StepperTypes.Item) => newItem.label === item.label);
