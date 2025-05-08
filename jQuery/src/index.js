@@ -20,8 +20,6 @@ $(() => {
       label: 'Review and Submit',
       icon: 'send',
     }],
-    linear: true,
-    selectedIndex: 0,
     onSelectionChanged: (e) => {
       const newItem = e.addedItems[0];
       const items = e.component.option('items');
