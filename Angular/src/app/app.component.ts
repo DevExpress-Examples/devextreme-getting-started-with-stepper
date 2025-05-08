@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ClickEvent } from 'devextreme/ui/button';
+import { DxStepperTypes } from 'devextreme-angular/stepper';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +7,10 @@ import { ClickEvent } from 'devextreme/ui/button';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'Angular';
-
-  counter = 0;
-
-  buttonText = 'Click count: 0';
-
-  onClick(e: ClickEvent): void {
-    this.counter++;
-    this.buttonText = `Click count: ${this.counter}`;
+  onSelectionChanged(e: DxStepperTypes.SelectionChangedEvent) {
+    const newItem = e.addedItems[0];
+    const items = e.component.option('items');
+    const newIndex = items.findIndex((item) => newItem.label === item.label);
+    e.component.option(`items[${newIndex - 1}].disabled`, true);
   }
 }
