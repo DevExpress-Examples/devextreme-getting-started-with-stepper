@@ -1,33 +1,10 @@
-<dx-stepper (onSelectionChanged)="onSelectionChanged($event)">
-  <dxi-item 
-    label="Personal Details"
-    template="firstStep"
-  ></dxi-item>
-  <div *dxTemplate="let data of 'firstStep'">
-    <div class='star dx-step-indicator'></div>
-    <div class='dx-step-caption'>
-      <div class='dx-step-label'>{{ data.label }}</div>
+<dx-stepper
+  [items]="steps"
+  (onSelectionChanged)="onSelectionChanged($event)">
+  <div *dxTemplate="let data of 'starTemplate'">
+    <div class="star dx-step-indicator"></div>
+    <div class="dx-step-caption">
+      <div class="dx-step-label">{{ data.label }}</div>
     </div>
   </div>
-  <dxi-item 
-    label="Program Selection"
-    icon="detailslayout"
-  ></dxi-item>
-  <dxi-item 
-    label="Campus and Start Dates"
-    icon="map"
-  ></dxi-item>
-  <dxi-item 
-    label="Supporting Documents"
-    icon="textdocument"
-  ></dxi-item>
-  <dxi-item 
-    label="Scholarship and Aid"
-    icon="money"
-    [optional]="true"
-  ></dxi-item>
-  <dxi-item 
-    label="Review and Submit"
-    icon="send"
-  ></dxi-item>
 </dx-stepper>

@@ -1,26 +1,42 @@
+<template>
+  <DxStepper ref="stepperRef" @selection-changed="onSelectionChanged">
+  <DxItem
+    v-for="(item, index) in items"
+    :key="index"
+    v-bind="item"
+    :template="item.template"
+  />
+  <template #star="{ data }">
+    <div class="star dx-step-indicator"></div>
+    <div class="dx-step-caption">
+      <div class="dx-step-label">{{ data.label }}</div>
+    </div>
+  </template>
+</DxStepper>
+</template>
 <script setup lang="ts">
 import { DxStepper, DxItem, DxStepperTypes } from 'devextreme-vue/stepper';
+import { reactive } from 'vue';
+const items = reactive([
+  { label: 'Personal Details', template: 'star' },
+  { label: 'Program Selection', icon: 'detailslayout' },
+  { label: 'Campus and Start Dates', icon: 'map' },
+  { label: 'Supporting Documents', icon: 'textdocument' },
+  { label: 'Scholarship and Aid', icon: 'money', optional: true },
+  { label: 'Review and Submit', icon: 'send' }
+]);
 const onSelectionChanged = (e: DxStepperTypes.SelectionChangedEvent) => {
   const newItem = e.addedItems[0];
-  const items = e.component.option('items');
-  const newIndex = items.findIndex((item) => newItem.label === item.label);
-  e.component.option(`items[${newIndex - 1}].disabled`, true);
+  const newIndex = items.findIndex((item) => item.label === newItem.label);
+  if (newIndex > 0) {
+    items[newIndex - 1].disabled = true;
+  }
 };
 </script>
-<template>
-  <DxStepper @selection-changed="onSelectionChanged">
-    <DxItem label='Personal Details' template='star' />
-    <template #star="{ data }">
-      <div class="star dx-step-indicator">
-      </div>
-      <div class="dx-step-caption">
-        <div class="dx-step-label">{{ data.label }}</div>
-      </div>
-    </template>
-    <DxItem label="Program Selection" icon='detailslayout' />
-    <DxItem label="Campus and Start Dates" icon='map' />
-    <DxItem label="Supporting Documents" icon='textdocument' />
-    <DxItem label="Scholarship and Aid" icon='money' :optional='true' />
-    <DxItem label="Review and Submit" icon='send' />
-  </DxStepper>
-</template>
+<style>
+.star { 
+  aspect-ratio: 1;
+  clip-path: polygon(50% 0,79% 90%,2% 35%,98% 35%,21% 90%); 
+  box-shadow: 0 0 0 8px #fafafa;
+}
+</style>
