@@ -7,10 +7,21 @@ import { DxStepperTypes } from 'devextreme-angular/stepper';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  onSelectionChanged(e: DxStepperTypes.SelectionChangedEvent) {
+  steps = [
+    { label: 'Personal Details', template: 'starTemplate' },
+    { label: 'Program Selection', icon: 'detailslayout' },
+    { label: 'Campus and Start Dates', icon: 'map' },
+    { label: 'Supporting Documents', icon: 'textdocument' },
+    { label: 'Scholarship and Aid', icon: 'money', optional: true },
+    { label: 'Review and Submit', icon: 'send' }
+  ];
+  
+  onSelectionChanged(e: DxStepperTypes.SelectionChangedEvent): void {
     const newItem = e.addedItems[0];
-    const items = e.component.option('items');
-    const newIndex = items.findIndex((item) => newItem.label === item.label);
-    e.component.option(`items[${newIndex - 1}].disabled`, true);
+    const newIndex = this.steps.findIndex(item => item.label === newItem.label);
+
+    if (newIndex > 0 && !this.steps[newIndex - 1].disabled) {
+      this.steps[newIndex - 1].disabled = true;
+    }
   }
 }
