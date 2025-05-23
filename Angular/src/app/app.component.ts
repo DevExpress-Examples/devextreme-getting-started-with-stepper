@@ -21,9 +21,7 @@ export class AppComponent {
     const newIndex = this.steps.findIndex(item => item.label === newItem.label);
 
     if (newIndex > 0 && !this.steps[newIndex - 1].disabled) {
-      this.steps = this.steps.map((item, index) =>
-        index === newIndex - 1 ? { ...item, disabled: true } : item
-      );
+      this.steps[newIndex - 1].disabled = true;
     }
   }
 }
