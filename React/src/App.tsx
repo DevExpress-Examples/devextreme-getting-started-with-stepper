@@ -1,7 +1,7 @@
 import React, { JSX, useState } from 'react';
 import { Stepper, Item, StepperTypes } from 'devextreme-react/stepper';
 
-const renderFirstItem = (data: StepperTypes.TemplateData) => (
+const renderStarTemplate = (data: StepperTypes.TemplateData) => (
   <>
     <div className="star dx-step-indicator"></div>
     <div className="dx-step-caption">
@@ -12,7 +12,7 @@ const renderFirstItem = (data: StepperTypes.TemplateData) => (
 
 export default function App(): JSX.Element {
   const [steps, setSteps] = useState([
-    { label: 'Personal Details', render: renderFirstItem },
+    { label: 'Personal Details', render: renderStarTemplate },
     { label: 'Program Selection', icon: 'detailslayout' },
     { label: 'Campus and Start Dates', icon: 'map' },
     { label: 'Supporting Documents', icon: 'textdocument' },
