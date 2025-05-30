@@ -8,7 +8,7 @@
 
 This repository stores code for the following DevExpress tutorial: [Getting Started with DevExtreme Stepper](https://js.devexpress.com/Documentation/Guide/UI_Components/Stepper/Getting_Started_with_Stepper/). The project creates a Stepper and configures the component's core settings.
 
-<div align="center"><img src="./Stepper.png" style="width: 400px;" /></div>
+<div align="center"><img src="./Stepper.png" /></div>
 
 ## Files to Review
 
