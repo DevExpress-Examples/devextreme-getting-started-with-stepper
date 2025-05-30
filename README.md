@@ -4,7 +4,29 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
-# devextreme-getting-started-with-stepper
+# DevExtreme Stepper - Getting Started
+
+This repository stores code for the following DevExpress tutorial: [Getting Started with DevExtreme Stepper](https://js.devexpress.com/Documentation/Guide/UI_Components/Stepper/Getting_Started_with_Stepper/). The project creates a Stepper and configures the component's core settings.
+
+<div align="center"><img src="./Stepper.png" style="width: 400px;" /></div>
+
+## Files to Review
+
+- **jQuery**
+    - [index.js](jQuery/src/index.js)
+- **Angular**
+    - [app.component.html](Angular/src/app/app.component.html)
+    - [app.component.ts](Angular/src/app/app.component.ts)
+- **Vue**
+    - [Home.vue](Vue/src/components/HomeContent.vue)
+- **React**
+    - [App.js](React/src/App.js)
+
+## Documentation
+
+- [Getting Started with Stepper](https://js.devexpress.com/Documentation/Guide/UI_Components/Stepper/Getting_Started_with_Stepper/)
+
+- [Stepper - API Reference](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxStepper/)
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
 
