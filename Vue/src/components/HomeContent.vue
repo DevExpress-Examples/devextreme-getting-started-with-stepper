@@ -15,9 +15,11 @@
 </DxStepper>
 </template>
 <script setup lang="ts">
-import { DxStepper, DxItem, DxStepperTypes } from 'devextreme-vue/stepper';
 import { reactive } from 'vue';
-const items = reactive([
+import { DxStepper, DxItem, DxStepperTypes } from 'devextreme-vue/stepper';
+import 'devextreme/dist/css/dx.light.css';
+
+const items: DxStepperTypes.Item[] = reactive([
   { label: 'Personal Details', template: 'star' },
   { label: 'Program Selection', icon: 'detailslayout' },
   { label: 'Campus and Start Dates', icon: 'map' },

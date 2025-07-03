@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DxStepperTypes } from 'devextreme-angular/stepper';
+import { DxStepperTypes } from 'devextreme-angular/ui/stepper';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,7 @@ import { DxStepperTypes } from 'devextreme-angular/stepper';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  steps = [
+  steps: DxStepperTypes.Item[] = [
     { label: 'Personal Details', template: 'starTemplate' },
     { label: 'Program Selection', icon: 'detailslayout' },
     { label: 'Campus and Start Dates', icon: 'map' },

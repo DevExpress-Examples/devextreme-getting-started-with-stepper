@@ -1,6 +1,9 @@
 module.exports = {
   root: true,
   extends: ['devextreme/spell-check'],
+  rules: {
+    'react/jsx-no-bind': 'off',
+  },
   overrides: [{
     files: ['*.ts', '*.tsx'],
     extends: ['devextreme/react'],
