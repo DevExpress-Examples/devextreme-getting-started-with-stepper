@@ -1,6 +1,4 @@
-<dx-stepper
-  [items]="steps"
-  (onSelectionChanged)="onSelectionChanged($event)">
+<dx-stepper [items]="steps" (onSelectionChanged)="onSelectionChanged($event)">
   <div *dxTemplate="let data of 'starTemplate'">
     <div class="star dx-step-indicator"></div>
     <div class="dx-step-caption">

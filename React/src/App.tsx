@@ -1,5 +1,5 @@
-import React, { JSX, useState } from 'react';
-import Stepper, { Item, StepperTypes } from 'devextreme-react/stepper';
+import React, { type JSX, useCallback, useState } from 'react';
+import Stepper, { Item, type StepperTypes } from 'devextreme-react/stepper';
 import 'devextreme/dist/css/dx.light.css';
 
 export default function App(): JSX.Element {
@@ -23,7 +23,7 @@ export default function App(): JSX.Element {
     { label: 'Review and Submit', icon: 'send' },
   ]);
 
-  function onSelectionChanged(e: StepperTypes.SelectionChangedEvent): void {
+  const onSelectionChanged = useCallback((e: StepperTypes.SelectionChangedEvent): void => {
     const newItem = e.addedItems[0];
     const newIndex = steps.findIndex((item) => item.label === newItem.label);
 
@@ -32,7 +32,7 @@ export default function App(): JSX.Element {
       updated[newIndex - 1] = { ...updated[newIndex - 1], disabled: true };
       setSteps(updated);
     }
-  }
+  }, [steps]);
 
   return (
     <React.Fragment>
