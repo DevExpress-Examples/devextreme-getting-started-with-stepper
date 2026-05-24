@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { DxStepperTypes } from 'devextreme-angular/ui/stepper';
 
+import { DxStepperModule } from 'devextreme-angular';
+
 @Component({
     selector: 'app-root',
+    imports: [DxStepperModule],
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    standalone: false
 })
 export class AppComponent {
   steps: DxStepperTypes.Item[] = [
