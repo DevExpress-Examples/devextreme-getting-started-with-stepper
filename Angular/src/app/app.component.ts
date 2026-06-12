@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { DxStepperTypes } from 'devextreme-angular/ui/stepper';
 
 import { DxStepperModule } from 'devextreme-angular';
@@ -7,6 +7,7 @@ import { DxStepperModule } from 'devextreme-angular';
     selector: 'app-root',
     imports: [DxStepperModule],
     templateUrl: './app.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
